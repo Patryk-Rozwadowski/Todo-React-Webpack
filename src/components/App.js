@@ -1,6 +1,7 @@
 import React from 'react';
 import uuid from 'uuid';
 import style from './App.css'
+import Title from './Title';
 
 class App extends React.Component {
 
@@ -28,7 +29,10 @@ class App extends React.Component {
     render() {
         return (
             <div className={style.TodoApp}>
-
+                <Title title="1. Zadanie"></Title>
+                <Title title="2. Zadanie"></Title>
+                <Title title="3. Zadanie"></Title>
+                <Title title="4. Zadanie"></Title>
             </div>
         );
     }

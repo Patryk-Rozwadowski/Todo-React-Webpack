@@ -1,8 +1,41 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
+import uuid from 'uuid';
+import style from './App.css'
+//import Title from './Title';
+const Title = props => <p>{props.title}</p>;
+class App extends React.Component {
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('app');
-)
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: []
+        };
+    }
+
+    addTodo(val) {
+        const todo = {
+            text: val,
+            id: uuid.v4(),
+        };
+        const data = [...this.state.data, todo];
+        this.setState({ data });
+    }
+
+    removeTodo(id) {
+        const remainder = this.state.data.filter(todo => todo.id !== id);
+        this.setState({ data: remainder });
+    }
+
+    render() {
+        return (
+            <div className={style.TodoApp}>
+                <Title title="1. Zadanie"></Title>
+                <Title title="2. Zadanie"></Title>
+                <Title title="3. Zadanie"></Title>
+                <Title title="4. Zadanie"></Title>
+            </div>
+        );
+    }
+}
+
+export default App;
