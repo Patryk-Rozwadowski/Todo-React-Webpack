@@ -1,8 +1,10 @@
+
+import { hot } from '@hot-loader/react-dom';
 import React from 'react';
 import uuid from 'uuid';
 import style from './App.css'
-//import Title from './Title';
-const Title = props => <p>{props.title}</p>;
+import Title from '../components/Title';
+
 class App extends React.Component {
 
     constructor(props) {
@@ -30,12 +32,12 @@ class App extends React.Component {
         return (
             <div className={style.TodoApp}>
                 <Title title="1. Zadanie"></Title>
-                <Title title="2. Zadanie"></Title>
-                <Title title="3. Zadanie"></Title>
-                <Title title="4. Zadanie"></Title>
+                <Title title="23. Zaoytoyudanie"></Title>
+                <Title title="34. Zadanie"></Title>
+                <Title title="45. Zadanie"></Title>
             </div>
         );
     }
 }
 
-export default App;
+export default hot(module)(App);
