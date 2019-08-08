@@ -1,9 +1,9 @@
 
-import { hot } from '@hot-loader/react-dom';
 import React from 'react';
 import uuid from 'uuid';
-import style from './App.css'
+import style from './App.css';
 import Title from '../components/Title';
+import { hot } from 'react-hot-loader'
 
 class App extends React.Component {
 
@@ -32,7 +32,7 @@ class App extends React.Component {
         return (
             <div className={style.TodoApp}>
                 <Title title="1. Zadanie"></Title>
-                <Title title="23. Zaoytoyudanie"></Title>
+                <Title title="23gdgdgdfgggs. Zaoytoyudanie"></Title>
                 <Title title="34. Zadanie"></Title>
                 <Title title="45. Zadanie"></Title>
             </div>

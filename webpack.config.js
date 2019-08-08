@@ -15,8 +15,8 @@ module.exports = (env) => {
             new OptimizeJsPlugin({
                 sourceMap: false
             })
-        )
-    }
+        );
+    };
     const environment = env || 'production';
 
     return {
