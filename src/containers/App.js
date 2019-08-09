@@ -3,6 +3,7 @@ import React from 'react';
 import uuid from 'uuid';
 import style from './App.css';
 import Title from '../components/Title';
+import TodoList from '../components/TodoList';
 import { hot } from 'react-hot-loader'
 
 class App extends React.Component {
@@ -10,7 +11,16 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [{
+                id: uuid.v4(),
+                text: 'clean room'
+            }, {
+                id: uuid.v4(),
+                text: 'wash the dishes'
+            }, {
+                id: uuid.v4(),
+                text: 'feed my cat'
+            }]
         };
     }
 
@@ -31,10 +41,7 @@ class App extends React.Component {
     render() {
         return (
             <div className={style.TodoApp}>
-                <Title title="1. Zadanie"></Title>
-                <Title title="23gdgdgdfgggs. Zaoytoyudanie"></Title>
-                <Title title="34. Zadanie"></Title>
-                <Title title="45. Zadanie"></Title>
+                {this.state.data.map(el => <TodoList key={el.id} element={el.text}></TodoList>)}
             </div>
         );
     }
