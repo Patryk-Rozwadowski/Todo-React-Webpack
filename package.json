@@ -2,22 +2,23 @@
   "name": "webpack-first-steps",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d build",
     "start": "webpack-dev-server --hot --env development",
     "build": "webpack --hot --env production"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Patryk-Rozwadowski/webpack.git"
+    "url": "git+https://patryk-rozwadowski.github.io/Todo-React-Webpack"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Patryk-Rozwadowski/webpack/issues"
+    "url": "https://patryk-rozwadowski.github.io/Todo-React-Webpack/issues"
   },
-  "homepage": "https://github.com/Patryk-Rozwadowski/webpack#readme",
+  "homepage": "https://patryk-rozwadowski.github.io/Todo-React-Webpack/#readme",
   "devDependencies": {
     "@babel/core": "^7.3.3",
     "@babel/plugin-proposal-class-properties": "^7.5.5",

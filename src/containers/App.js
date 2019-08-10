@@ -4,8 +4,9 @@ import uuid from 'uuid';
 import style from './App.css';
 import Title from '../components/Title';
 import TodoList from '../components/TodoList';
-import Todo from '../components/Todo'
-import { hot } from 'react-hot-loader'
+import Todo from '../components/Todo';
+import TodoForm from '../components/TodoForm';
+import { hot } from 'react-hot-loader';
 
 class App extends React.Component {
 
@@ -21,7 +22,8 @@ class App extends React.Component {
             }, {
                 id: uuid.v4(),
                 text: 'feed my cat'
-            }]
+            }],
+            newTasks: []
         };
     }
 
@@ -39,12 +41,24 @@ class App extends React.Component {
         this.setState({ data: remainder });
     }
 
+    addTodo = e => {
+        e.preventDefault();
+
+        const newTask = { id: uuid.v4(), text: document.getElementById('inputValue').value}
+        console.log(newTask)
+
+        this.setState({
+            data: [...this.state.data, newTask]
+        })
+    }
+
     render() {
         return (
             <div className={style.TodoApp}>
                 <Title title={'Things to do: '} taskNumber={this.state.data.length}/>
                 {this.state.data == 0 && <Todo text='Nothing to do!'/>}
                 <TodoList removeTodo={this.removeTodo} data={this.state.data} />
+                <TodoForm submit={(e) => {this.addTodo(e)}}></TodoForm>
             </div>
         );
     }
