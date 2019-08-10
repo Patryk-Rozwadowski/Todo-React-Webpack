@@ -10,7 +10,5 @@ const TodoList = props =>
                 remove={() => { props.removeTodo(el.id) }} />
         )}
     </div>
-
-
-
+    
 export default TodoList;

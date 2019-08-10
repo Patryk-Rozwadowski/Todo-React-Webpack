@@ -4,6 +4,7 @@ import uuid from 'uuid';
 import style from './App.css';
 import Title from '../components/Title';
 import TodoList from '../components/TodoList';
+import Todo from '../components/Todo'
 import { hot } from 'react-hot-loader'
 
 class App extends React.Component {
@@ -42,7 +43,8 @@ class App extends React.Component {
         return (
             <div className={style.TodoApp}>
                 <Title title={'Things to do: '} taskNumber={this.state.data.length}/>
-                <TodoList removeTodo={this.removeTodo} data={this.state.data}/>
+                {this.state.data == 0 && <Todo text='Nothing to do!'/>}
+                <TodoList removeTodo={this.removeTodo} data={this.state.data} />
             </div>
         );
     }
