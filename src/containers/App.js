@@ -24,7 +24,7 @@ class App extends React.Component {
         };
     }
 
-    addTodo(val) {
+    addTodo = val => {
         const todo = {
             text: val,
             id: uuid.v4(),
@@ -33,7 +33,7 @@ class App extends React.Component {
         this.setState({ data });
     }
 
-    removeTodo(id) {
+    removeTodo = id =>{
         const remainder = this.state.data.filter(todo => todo.id !== id);
         this.setState({ data: remainder });
     }
@@ -41,7 +41,8 @@ class App extends React.Component {
     render() {
         return (
             <div className={style.TodoApp}>
-                {this.state.data.map(el => <TodoList key={el.id} element={el.text}></TodoList>)}
+                <Title title={'Hehe'} taskNumber={this.state.data.length}/>
+                <TodoList data={this.state.data} removeTodo={this.removeTodo}/>
             </div>
         );
     }
