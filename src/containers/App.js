@@ -43,9 +43,7 @@ class App extends React.Component {
 
     addTodo = e => {
         e.preventDefault();
-
         const newTask = { id: uuid.v4(), text: document.getElementById('inputValue').value}
-        console.log(newTask)
 
         this.setState({
             data: [...this.state.data, newTask]
