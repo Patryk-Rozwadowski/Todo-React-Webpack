@@ -27,20 +27,13 @@ class App extends React.Component {
         };
     }
 
-    addTodo = val => {
-        const todo = {
-            text: val,
-            id: uuid.v4(),
-        };
-        const data = [...this.state.data, todo];
-        this.setState({ data });
-    }
 
-    removeTodo = id =>{
+    removeTodo = id => {
         const remainder = this.state.data.filter(todo => todo.id !== id);
         this.setState({ data: remainder });
     }
 
+    
     addTodo = e => {
         e.preventDefault();
 
@@ -52,13 +45,24 @@ class App extends React.Component {
         })
     }
 
+    resetInput = e => {
+        e.preventDefault();
+        e.target.reset();
+    }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        this.addTodo(e);
+        this.resetInput(e);
+    }
+
     render() {
         return (
             <div className={style.TodoApp}>
                 <Title title={'Things to do: '} taskNumber={this.state.data.length}/>
                 {this.state.data == 0 && <Todo text='Nothing to do!'/>}
                 <TodoList removeTodo={this.removeTodo} data={this.state.data} />
-                <TodoForm submit={(e) => {this.addTodo(e)}}></TodoForm>
+                <TodoForm submit={(e) => { this.handleSubmit(e)}}></TodoForm>
             </div>
         );
     }
